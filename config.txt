@@ -1,0 +1,21 @@
+# Ceci est un test
+# Les lignes commençant par un # ne sont pas lues par le programme.
+
+# Définition de la fenetre des positions possibles de la camera.
+x -400 400
+y -400 400
+z 80 100
+
+# On precise que l'on veut des cibles relatives dans un rayon de 20 en x et y par rapport aux cameras.
+relat 20 20
+
+# Definition des focales possibles
+focal 4 6.7
+
+# Definition des differentes classes
+label 255 0 0 1
+label 0 0 0 0
+label 0 0 255 2
+
+# Nombre de cameras a generer
+num_cams 5

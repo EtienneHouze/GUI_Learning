@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<BlocksExchange version="3.1">
+	<SpatialReferenceSystems>
+		<SRS>
+			<Id>3</Id>
+			<Name>Local East-North-Up (ENU); origin: 35.837820N 77.975970W</Name>
+			<Definition>ENU:35.83782,-77.97597</Definition>
+		</SRS>
+	</SpatialReferenceSystems>
+	<Block>
+		<Name>Block_1 - AT (2) - Etienne</Name>
+		<Description>Copied from Block_1 - AT (2) (2017-Jun-06 10:17:17)</Description>
+		<SRSId>3</SRSId>
+		<Photogroups>
+			<Photogroup>
+				<Name>Photogroup 1</Name>
+				<ImageDimensions>
+					<Width>256</Width>
+					<Height>256</Height>
+				</ImageDimensions>
+				<CameraModelType>Perspective</CameraModelType>
+				<FocalLength>4.3622343907279095</FocalLength>
+				<SensorSize>6.1699999999999999</SensorSize>
+				<PrincipalPoint>
+					<x>128</x>
+					<y>128</y>
+				</PrincipalPoint>
+				<Distortion>
+					<K1>-0.049000000000000002</K1>
+					<K2>0.058999999999999997</K2>
+					<K3>-0.035999999999999997</K3>
+					<P1>0</P1>
+					<P2>-0.0030000000000000001</P2>
+				</Distortion>
+				<AspectRatio>1</AspectRatio>
+				<Skew>0</Skew>
+				
+			</Photogroup>
+		</Photogroups>
+		<ControlPoints/>
+		<PositioningConstraints/>
+	</Block>
+</BlocksExchange>
