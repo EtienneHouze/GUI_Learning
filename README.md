@@ -9,7 +9,7 @@ This project requires Windows10, NVidia GPU supporting CUDA8 and CUDNN 5.1. Thos
 
 
 ### How to use :
-This prject is written in both C++ and Python. The C++ source is provided in the CPP folder. The addtionnal required libraries can be found [here](www.google.com), since they are too large to be uploaded on this repo. They must then be uncompressed into CPP/3rd_Party. The project must ne built with VC++14, in release 64bits mode.
+This prject is written in both C++ and Python. The C++ source is provided in the CPP folder. The addtionnal required libraries can be found [here](https://drive.google.com/file/d/0B13uLe-AJjEUUXFWdlk2SUJqUnc/view?usp=sharing), since they are too large to be uploaded on this repo. They must then be uncompressed into CPP/3rd_Party. The project must ne built with VC++14, in release 64bits mode.
 
 The Python part of the project contains the main script. This script __must__ be laucnhed using the conda environment that can be found in the _environment.yml_ file located in the project folder, and the working directory must be the root directory of the project. All Python code is commented and the usual commands can be performed through the GUI launched by the main script.
 
