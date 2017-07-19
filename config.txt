@@ -1,21 +1,20 @@
-# Ceci est un test
-# Les lignes commençant par un # ne sont pas lues par le programme.
+# Lines like this one are comments and ignored by the script when parsing.
 
-# Définition de la fenetre des positions possibles de la camera.
+# Ranges of possible locations of cameras optical centers
 x -400 400
 y -400 400
 z 80 100
 
-# On precise que l'on veut des cibles relatives dans un rayon de 20 en x et y par rapport aux cameras.
+# We precise we want targets to be in relative distance between 20 and -20 in both x and y axis from the cameras.
 relat 20 20
 
-# Definition des focales possibles
+# Definition of the range of possible focal lengths
 focal 4 6.7
 
-# Definition des differentes classes
+# Definition of the labels, following the syntax : $R $G $B $Label
 label 255 0 0 1
 label 0 0 0 0
 label 0 0 255 2
 
-# Nombre de cameras a generer
-num_cams 5
+# How many cameras are to be generated
+num_cams 200

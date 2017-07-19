@@ -4,6 +4,7 @@ from subprocess import call
 from os.path import join,isfile, exists
 from os import mkdir
 import fileinput
+import threading
 import getopt
 import sys
 from PIL import Image
@@ -150,7 +151,7 @@ class Preproc():
 
 
 
-    def run(self, out_folder, model_rgb):
+    def run(self, out_folder, model_rgb, model_labels):
         """
         Méthode générant le dossier de Data correspondant à la configuration de l'objet Preproc.
         Args:
@@ -225,7 +226,7 @@ class Preproc():
                 print("Image " + file + " processed.")
         print("Done !")
 
-    def run_no_label(self, out_folder, model_rgb, model_labels):
+    def run_no_label(self, out_folder, model_rgb):
         """
         Méthode générant le dossier de Data correspondant à la configuration de l'objet Preproc, lorsque l'on a pas de fichier de label correspondant.
         Args:

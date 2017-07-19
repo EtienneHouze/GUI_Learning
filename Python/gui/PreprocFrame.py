@@ -29,7 +29,7 @@ class PreprocFrame(tk.LabelFrame):
             Modifie la fenetre.
         """
         self.bouton_fichier = tk.Button(self,text="Configuration file", command=self.file_select )
-        self.bouton_dossier_out = tk.Button(self, text='Output file', command=self.out_folder_select)
+        self.bouton_dossier_out = tk.Button(self, text='Output folder', command=self.out_folder_select)
         self.bouton_model_rgb = tk.Button(self,text='RGB Mesh', command=self.model_rgb_select)
         self.bouton_model_label = tk.Button(self,text='Labelled Mesh', command=self.model_label_select)
         self.fichier_label = tk.Label(self,text=self.config_file_name,bg='red',width=100)
@@ -54,7 +54,7 @@ class PreprocFrame(tk.LabelFrame):
         Returns:
             Met à jour la variable "config_file"
         """
-        self.config_file.set(tk.filedialog.askopenfilename(title="Veuillez choisir un fichier de configuration",
+        self.config_file.set(tk.filedialog.askopenfilename(title="Please select a configuration file.",
                                                        filetypes=[('Config file','*.txt')]))
         if len(self.config_file.get()) > 1:
             self.fichier_label.configure(text=self.config_file.get(),bg='green')
@@ -67,7 +67,7 @@ class PreprocFrame(tk.LabelFrame):
         Returns:
             Met à jour la variable "out_folder"
         """
-        self.out_folder.set(tk.filedialog.askdirectory(title="Veuillez choisir un dossier de sortie."))
+        self.out_folder.set(tk.filedialog.askdirectory(title="Please select an output folder."))
         if self.out_folder.get() != "":
             self.out_folder_label.configure(text=self.out_folder.get(),bg='green')
         else:
@@ -80,7 +80,7 @@ class PreprocFrame(tk.LabelFrame):
         Returns:
             Met à jour la variable "model_rgb"
         """
-        self.model_rgb.set(tk.filedialog.askopenfilename(title='Veuillez choisir un fichier du mesh RGB',
+        self.model_rgb.set(tk.filedialog.askopenfilename(title='Select the RGB Mesh .obj file',
                                                          filetype=[('OBJ file','*.obj')]))
         if self.model_rgb.get() != "":
             self.model_rgb_label.configure(text=self.model_rgb.get(),bg='green')
