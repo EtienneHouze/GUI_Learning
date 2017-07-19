@@ -2755,7 +2755,7 @@ builders_dict = {
 
 # TODO : Compléter cette doc...
 builders_doc = {
-    'simple_model': "Un modèle très simple fait pour tester le code.",
-    'up' : "Déprécié",
-    'up_without':"Le modele de convolution upscalées sans module d'agrégation"
+    'simple_model': "A very simple model made for testing purpose.",
+    'up' : "Deprecated",
+    'up_without':"Upscaled convolutions without agregation module."
 }
