@@ -9,7 +9,7 @@ import keras
 from helpers import Metrics
 from helpers.others import isValidDataDir
 from model.ThreeDimModel import ThreeDimModel
-from model.builders import builders_dict
+from model.builders import builders_dict,builders_doc
 
 
 class TrainFrame(tk.LabelFrame):
@@ -194,6 +194,8 @@ class TrainFrame(tk.LabelFrame):
         '''
         self.model3D.builder = self.model_choser.get(
                 self.model_choser.curselection())
+        if builders_doc.get(self.model3D.builder):
+            print(builders_doc.get(self.model3D.builder))
 
     def model_labels_setter(self):
         self.model3D.num_labels = int(self.num_labels_choser.get())

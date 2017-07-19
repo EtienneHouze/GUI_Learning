@@ -29,7 +29,7 @@ The widget contains 4 main functions :
 
     * The user first has to chose a folder for the model. If this folder already contains a saved model, this model will be automatically loaded and some fields will turn off.
     * In case the network is not loaded, the user must select a builder function from the list, as well as a number of labels (outputs) and a name for the model.
-    * Then, he or she must provides the characteristics for the training session : number of epochs, size of a mini-batch, use of tensorboard and of periodical checkpoints. The optimizer is Adam optimizer, and is used with specified learning rate and decay rate. The loss is cross-entropy.
+    * Then, he or she must provides the characteristics for the training session : number of epochs, size of a mini-batch, use of tensorboard and of periodical checkpoints (only the weights of the model are saved). The optimizer is Adam optimizer, and is used with specified learning rate and decay rate. The loss is cross-entropy.
     * Finally, just click on the launch button to begin the training session
 
 3) __Inference__ __:__ With this mode, the user can use an already trained model to compute labelled images from a data set.
