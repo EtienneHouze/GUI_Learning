@@ -42,7 +42,7 @@ class MainWindow(tk.Frame):
         """
         if self.frame:
             self.frame.destroy()
-        self.frame = InferenceFrame(self)
+        self.frame = TrainFrame(self)
         self.frame.grid(row=1,columnspan=4,pady=10)
 
     def open_inference(self):
@@ -54,7 +54,7 @@ class MainWindow(tk.Frame):
         """
         if self.frame:
             self.frame.destroy()
-        self.frame = TrainFrame(self)
+        self.frame = InferenceFrame(self)
         self.frame.grid(row=1,columnspan=4,pady=10)
 
     def open_postproc(self):

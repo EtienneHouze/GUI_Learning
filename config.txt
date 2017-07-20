@@ -17,4 +17,4 @@ label 0 0 0 0
 label 0 0 255 2
 
 # How many cameras are to be generated
-num_cams 200
+num_cams 5000
