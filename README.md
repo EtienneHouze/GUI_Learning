@@ -30,7 +30,8 @@ The widget contains 4 main functions :
     * The user first has to chose a folder for the model. If this folder already contains a saved model, this model will be automatically loaded and some fields will turn off.
     * In case the network is not loaded, the user must select a builder function from the list, as well as a number of labels (outputs) and a name for the model.
     * Then, he or she must provides the characteristics for the training session : number of epochs, size of a mini-batch, use of tensorboard and of periodical checkpoints (only the weights of the model are saved). The optimizer is Adam optimizer, and is used with specified learning rate and decay rate. The loss is cross-entropy.
-    * Finally, just click on the launch button to begin the training session
+    * If selected, checkpoints are saved at the end of every epoch. Only weights are saved, and located in a _ckpt.h5_ file in the model folder.
+    * Finally, just click on the launch button to begin the training session. All model characteristics will be saved in the specified folder.
 
 3) __Inference__ __:__ With this mode, the user can use an already trained model to compute labelled images from a data set.
 
@@ -40,6 +41,7 @@ The widget contains 4 main functions :
 
 4) __Mesh__ __PostProcess__ __:__ This panel gives tools to reproject the labels from the output images of the network and make a point cloud with corresponding color code.
 
-    * As input data, the user must provide the folder containing the output label images from the network.
-    * He also must indicates the _Projections.txt_ file corresponding to the mesh, and the _labels.txt_ file giving correspondance between labels and colors.
+    * As input data, the user must provide the folder containing the output label images from the network (such as the one produced in the inference process).
+    * He also must indicates the _Projections.txt_ file corresponding to the mesh, and the _labels.txt_ file giving correspondance between labels and colors. These ones are produced in the preprocessing of the mesh.
     * Finally, he/she must provide an output .ptx file. It will be then possible to import the point cloud into ContextCapture.
+    * __Important__ __:__ Files must not be renamed during the process : their name is used as index to match inputs with corresponding outputs during the reconstruction process.
