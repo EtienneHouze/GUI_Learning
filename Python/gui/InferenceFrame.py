@@ -43,16 +43,19 @@ class InferenceFrame(tk.LabelFrame):
     
     def data_folder_setter(self):
         self.data_folder.set(filedialog.askdirectory(title='Select an input data folder'))
-        self.data_folder_label.configure(text=self.model_folder.get())
-        if isdir(join(self.model_folder.get(),'RGB')):
+        self.data_folder_label.configure(text=self.data_folder.get())
+        if isdir(join(self.data_folder.get(),'RGB')):
             self.data_folder_label.configure(bg='green')
         else:
             self.data_folder_label.configure(bg='red')
 
     def output_folder_setter(self):
         self.out_folder.set(filedialog.askdirectory(title='Select an output directory'))
-        self.out_folder_label.configure(text=self.model_folder.get())
-        self.out_folder_label.configure(bg='green')
+        self.out_folder_label.configure(text=self.out_folder.get())
+        if self.out_folder.get():
+            self.out_folder_label.configure(bg='green')
+        else:
+            self.out_folder_label.configure(bg='red')
 
     def launch_inference(self):
         if self.model_folder.get() and self.out_folder.get() and self.data_folder.get():

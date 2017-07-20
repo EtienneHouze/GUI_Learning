@@ -86,8 +86,8 @@ class BatchGenerator:
             i = self.model.num_iter % self.batch_per_epoch
             ins_list = []
             names_list = []
-            if i == 0:
-                np.random.shuffle(self.indices)
+            # if i == 0:
+            #     np.random.shuffle(self.indices)
             for k in self.indices[self.batch_size * i:(self.batch_size * i) + self.batch_size]:
                 rgb = Image.open(join(self.rgb_set, 'IMG_' + str(k) + '.png'))
                 depth = Image.open(join(self.depth_set, 'IMG_' + str(k) + '.png'))
