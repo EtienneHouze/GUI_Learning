@@ -150,14 +150,22 @@ class ThreeDimModel():
 
 
     def compute(self, data_dir, target_dir):
+        """
+        Method used to compute the output of the network, used during inference.
+        
+        Args :
+            data_dir (string) : path to the data fodler
+            target_dir (string) : path to the folder where the output will be written
+        
+        Returns :
+            computes the output of the given data folder.
+        """
         optimizer = keras.optimizers.Adam()
         self.model.compile(optimizer,'categorical_crossentropy',[])
         data_gen = BatchGenerator(self,data_dir,batch_size=1).generate_inference_batch()
         num_images = dirsize(join(data_dir,'RGB'))
         i = 0
         for (x,im_name) in data_gen:
-            # x = data[0]
-            # im_name = data[1]
             if i > num_images:
                 break
             y = self.model.predict_on_batch(x)

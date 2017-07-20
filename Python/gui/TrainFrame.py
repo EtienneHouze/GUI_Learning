@@ -14,7 +14,7 @@ from model.builders import builders_dict,builders_doc
 
 class TrainFrame(tk.LabelFrame):
     """
-   Definition of the frame managing the creation, training and saving of a neural network model.
+        Definition of the frame managing the creation, training and saving of a neural network model.
     """
 
     def __init__(self, master=None):
@@ -195,7 +195,7 @@ class TrainFrame(tk.LabelFrame):
         self.model3D.builder = self.model_choser.get(
                 self.model_choser.curselection())
         if builders_doc.get(self.model3D.builder):
-            print(builders_doc.get(self.model3D.builder))
+            print(builders_dict.get(self.model3D.builder).__doc__)
 
     def model_labels_setter(self):
         self.model3D.num_labels = int(self.num_labels_choser.get())

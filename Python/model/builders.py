@@ -1,5 +1,13 @@
 """
-    Ce fichier comprend les méthodes de constructions des différents réseaux de neurones utilisés lors de ce stage.  Les réseaux disponibles sont tous listés dans le dictionnaire situé à la  toute fin de ce fichier. S'y référer lors de la construction d'un modèle, et ne pas oublier de le mettre à jour lors de l'ajout d'une nouvelle méthode constructrice !
+    This file defines "builder" methods, which all work the same way:
+    Args :
+        input_shape (tuple) : a 3-integer tuple, which is the size of the input to be fed into the network
+        num_classes (int) : the number of output channels (classes) the network will return
+
+    Returns :
+        mod (keras model) : the keras model defining the network.
+
+    User can at will add new methods in this file, following the aforementionned pattern, and must then add his/her new methods to the dictionnary at the end of this file in order to make it appear in the GUI tool. It is also possible to add a documentation in the doc dictionnary at the end of this file.
 """
 
 from __future__ import absolute_import, print_function, division
