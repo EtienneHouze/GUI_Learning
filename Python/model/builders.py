@@ -23,10 +23,6 @@ from keras.models import Sequential, Model
 def simple_model(input_shape):
     """
     Dummy function, just to test. Builds a reallys simple model, very fast but useless.
-    :param
-        input_shape: a tuple of 3 ints, the shape of the input.
-    :return
-        mod : a keras model of the network
     """
     ins = Input(shape=input_shape)
     a = Conv2D(filters=32,
@@ -59,12 +55,8 @@ def simple_model(input_shape):
 
 def upscaled(input_shape, num_classes):
     """
-    Builds a simple network using upscaled 2D convolutions.
-    :param
-        input_shape: tuple of 3 integers, the shape of the input of the network
-        num_classes: integer, number of classes in the output.
-    :return
-        mod: a keras model of the network.
+    DEPRECATED
+    Builds a sequential model based on upscaled convolutions. Does not include agregation module.
 
     """
     mod = Sequential()
@@ -190,11 +182,6 @@ def upscaled(input_shape, num_classes):
 def upscaled_truncated(input_shape, num_classes):
     """
     Builds a smaller network of upscaled convolutions, to fit on a gtx980ti, for testing purpose only.
-    :param
-        input_shape: same as above.
-        num_classes: same as above
-    :return
-        mod: a keras model of the network.
     """
     mod = Sequential()
 
@@ -260,8 +247,11 @@ def upscaled_truncated(input_shape, num_classes):
 
 
 def upscaled_without_aggreg(input_shape, num_classes):
-    ins = Input(shape=input_shape,
-                name='net_inputs')
+    """
+    Builds a squential model without agregation module.
+    All layer names contains 'net', allowing to freeze them when training the agregation.
+    """
+    ins = Input(shape=input_shape,name='net_inputs')
     a = Conv2D(
             filters=16,
             kernel_size=(3, 3),
@@ -383,8 +373,10 @@ def upscaled_without_aggreg(input_shape, num_classes):
 
 
 def upscaled_with_aggreg(input_shape, num_classes):
-    ins = Input(shape=input_shape,
-                name='net_inputs')
+    """
+    Same model as the one above, but with added agregation module. Like above, layers in the main module contain "net" in their name, whereas layers in the agregation module have 'aggreg' in their name, allowing fine tuning.
+    """
+    ins = Input(shape=input_shape,name='net_inputs')
     a = Conv2D(
             filters=16,
             kernel_size=(3, 3),
@@ -577,6 +569,9 @@ def upscaled_with_aggreg(input_shape, num_classes):
 
 
 def upscaled_with_deeper_aggreg(input_shape, num_classes):
+    """
+    A tentative to build a net with more depth in the agregation module, but the gain is not worth the increase in memory use.
+    """
     ins = Input(shape=input_shape,
                 name='net_inputs')
     a = Conv2D(

@@ -173,4 +173,5 @@ class ThreeDimModel():
             y = np.squeeze(y).astype(dtype='uint8')
             y = Image.fromarray(y)
             y.save(join(target_dir,im_name[0]))
+            print("Output "+str(i)+ "/"+str(num_images)+" computed.")
             i += 1

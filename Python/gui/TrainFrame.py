@@ -116,6 +116,7 @@ class TrainFrame(tk.LabelFrame):
         self.freeze_button.grid(row=5, column=0, columnspan=2)
         self.freeze_layers_entry.grid(
                 row=5, column=2, columnspan=2, sticky=tk.E + tk.W)
+        self.model_choser.bind('<<ListboxSelect>>',self.builder_help)
 
         self.big_button = tk.Button(
                 self, text="LANCER L'ENTRAINEMENT", command=self.launch_training)
@@ -194,8 +195,19 @@ class TrainFrame(tk.LabelFrame):
         '''
         self.model3D.builder = self.model_choser.get(
                 self.model_choser.curselection())
-        if builders_doc.get(self.model3D.builder):
-            print(builders_dict.get(self.model3D.builder).__doc__)
+        if self.model3D.builder:
+            print("Model builder changed !")
+
+    def builder_help(self,evt):
+        if not self.model3D.builder:
+            print("No model selected yet. Press the button !")
+        doc = builders_dict.get(self.model_choser.get(self.model_choser.curselection())).__doc__
+        if doc :
+            print("About this builder :")
+            print(doc)
+            print('===============================================================')
+        else:
+            print("No documentation was provided for this builder !")
 
     def model_labels_setter(self):
         self.model3D.num_labels = int(self.num_labels_choser.get())
