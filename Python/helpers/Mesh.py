@@ -104,7 +104,7 @@ class Mesh:
                         labels.append(images[im_index][y_coord, x_coord])
                     lab = max(set(labels), key=lambda e: labscore(e, labels, min_thresh))
                     self.verts[point_index].label = lab
-                    print("point " + str(point_index) + "/"+str(self.numpoints) " processed")
+                    print("point " + str(point_index) + "/"+str(self.numpoints)+ " processed")
                     point_index += 1
 
     def save_to_txt(self, file):

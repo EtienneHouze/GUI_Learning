@@ -28,3 +28,5 @@
 /CPP/TextureRender.vcxproj
 /CPP/AltitudeRender.VC.db
 /CPP/ZERO_CHECK.vcxproj.filters
+
+*.pyc
