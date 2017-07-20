@@ -247,11 +247,12 @@ def upscaled_truncated(input_shape, num_classes):
 
 
 def upscaled_without_aggreg(input_shape, num_classes):
-    """
-    Builds a squential model without agregation module.
-    All layer names contains 'net', allowing to freeze them when training the agregation.
-    """
-    ins = Input(shape=input_shape,name='net_inputs')
+        """
+        Builds a squential model without agregation module.
+        All layer names contains 'net', allowing to freeze them when training the agregation.
+        """
+    ins = Input(shape=input_shape,
+                name='net_inputs')
     a = Conv2D(
             filters=16,
             kernel_size=(3, 3),
@@ -373,10 +374,11 @@ def upscaled_without_aggreg(input_shape, num_classes):
 
 
 def upscaled_with_aggreg(input_shape, num_classes):
-    """
-    Same model as the one above, but with added agregation module. Like above, layers in the main module contain "net" in their name, whereas layers in the agregation module have 'aggreg' in their name, allowing fine tuning.
-    """
-    ins = Input(shape=input_shape,name='net_inputs')
+        """
+        Same model as the one above, but with added agregation module. Like above, layers in the main module contain "net" in their name, whereas layers in the agregation module have 'aggreg' in their name, allowing fine tuning.
+        """
+    ins = Input(shape=input_shape,
+                name='net_inputs')
     a = Conv2D(
             filters=16,
             kernel_size=(3, 3),
@@ -569,9 +571,9 @@ def upscaled_with_aggreg(input_shape, num_classes):
 
 
 def upscaled_with_deeper_aggreg(input_shape, num_classes):
-    """
-    A tentative to build a net with more depth in the agregation module, but the gain is not worth the increase in memory use.
-    """
+        """
+        A tentative to build a net with more depth in the agregation module, but the gain is not worth the increase in memory use.
+        """
     ins = Input(shape=input_shape,
                 name='net_inputs')
     a = Conv2D(
