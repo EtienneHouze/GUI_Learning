@@ -90,7 +90,8 @@ class Mesh:
                 if len(splt) == 1:
                     pass
                 elif len(splt) == 2:
-                    im = Image.open(join(lab_dir, splt[0].replace('JPG', 'png')))
+                    im = Image.open(
+                        join(lab_dir, splt[0].replace('JPG', 'png')))
                     images.append(np.asarray(im, dtype='uint8'))
                     print("image loaded")
                 else:
@@ -102,9 +103,11 @@ class Mesh:
                         x_coord = int(np.floor(float(splt[3 * i + 1])))
                         y_coord = int(np.floor(float(splt[3 * i + 2])))
                         labels.append(images[im_index][y_coord, x_coord])
-                    lab = max(set(labels), key=lambda e: labscore(e, labels, min_thresh))
+                    lab = max(set(labels), key=lambda e: labscore(
+                        e, labels, min_thresh))
                     self.verts[point_index].label = lab
-                    print("point " + str(point_index) + "/"+str(self.numpoints)+ " processed")
+                    print("point " + str(point_index) + "/" +
+                          str(self.numpoints) + " processed")
                     point_index += 1
 
     def save_to_txt(self, file):
@@ -162,12 +165,14 @@ class Mesh:
             f.write(header)
             for vert in self.verts:
                 if write_labels:
-                    line = str(vert.x) + " " + str(vert.y) + " " + str(vert.z) + " 0 "
+                    line = str(vert.x) + " " + str(vert.y) + \
+                        " " + str(vert.z) + " 0 "
                     for i in labels_dict[vert.label]:
                         line += (str(i) + " ")
                     line += (str(vert.label) + "\n")
                 else:
-                    line = str(vert.x) + " " + str(vert.y) + " " + str(vert.z) + " 0"
+                    line = str(vert.x) + " " + str(vert.y) + \
+                        " " + str(vert.z) + " 0"
                     for i in labels_dict[vert.label]:
                         line += (" " + str(i))
                     line += "\n"
@@ -195,11 +200,11 @@ def Mesh_IoU(mesh_true, mesh_pred):
     """
     verts_pred = mesh_pred.verts
     verts_true = mesh_true.verts
-    if len(verts_pred)!=len(verts_true):
+    if len(verts_pred) != len(verts_true):
         raise Exception("Les deux meshes n'ont pas le meme nombre de sommet !")
     else:
-        num_labs = max(verts_true,key=lambda v:v.label)
-        num_labs = num_labs.label+1
+        num_labs = max(verts_true, key=lambda v: v.label)
+        num_labs = num_labs.label + 1
         TP = [0] * num_labs
         TN = [0] * num_labs
         FP = [0] * num_labs
@@ -208,13 +213,13 @@ def Mesh_IoU(mesh_true, mesh_pred):
             y_true = verts_true[i].label
             y_pred = verts_pred[i].label
             for lab in range(num_labs):
-                if y_true==y_pred and y_true==lab:
+                if y_true == y_pred and y_true == lab:
                     TP[lab] += 1
-                if y_true==lab and y_pred != y_pred:
+                if y_true == lab and y_pred != y_pred:
                     FN[lab] += 1
-                if y_true!=lab and y_pred!=lab:
+                if y_true != lab and y_pred != lab:
                     TN[lab] += 1
-                if y_true!=lab and y_pred==lab:
+                if y_true != lab and y_pred == lab:
                     FP[lab] += 1
             print("point " + str(i))
         iou = [0] * num_labs
