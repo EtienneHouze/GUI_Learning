@@ -28,7 +28,7 @@ The widget contains 4 main functions :
 2) __Training__ __:__ This mode allows the user to either load a previously trained model to pursue the training, or to create a newly defined neural network, using a function from the _model/builders.py_ file. See the documentation for this file.
 
     * The user first has to chose a folder for the model. If this folder already contains a saved model, this model will be automatically loaded and some fields will turn off.
-    * In case the network is not loaded, the user must select a builder function from the list, as well as a number of labels (outputs) and a name for the model.
+    * In case the network is not loaded, the user must select a builder function from the list, as well as a number of labels (outputs) and a name for the model. Clicking on the name of a builder will display its documentation.
     * Then, he or she must provides the characteristics for the training session : number of epochs, size of a mini-batch, use of tensorboard and of periodical checkpoints (only the weights of the model are saved). The optimizer is Adam optimizer, and is used with specified learning rate and decay rate. The loss is cross-entropy.
     * If selected, checkpoints are saved at the end of every epoch. Only weights are saved, and located in a _ckpt.h5_ file in the model folder.
     * Finally, just click on the launch button to begin the training session. All model characteristics will be saved in the specified folder.
@@ -45,3 +45,10 @@ The widget contains 4 main functions :
     * He also must indicates the _Projections.txt_ file corresponding to the mesh, and the _labels.txt_ file giving correspondance between labels and colors. These ones are produced in the preprocessing of the mesh.
     * Finally, he/she must provide an output .ptx file. It will be then possible to import the point cloud into ContextCapture.
     * __Important__ __:__ Files must not be renamed during the process : their name is used as index to match inputs with corresponding outputs during the reconstruction process.
+
+
+### Useful Links :
+* [Keras documentation](www.keras.io) : for adding new types of neural networks in the _Python/builders.py_ file.
+* [TensorFlow documentation](www.tensorflow.org) : for more advanced and backend configuration.
+* [Anaconda cheatsheet](https://conda.io/docs/_downloads/conda-cheatsheet.pdf) : basic Anaconda commands, explains how to create and use environments.
+* [Python documentation](docs.python.org/3.6/index.html)

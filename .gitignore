@@ -30,3 +30,5 @@
 /CPP/ZERO_CHECK.vcxproj.filters
 
 *.pyc
+
+\.vscode/
