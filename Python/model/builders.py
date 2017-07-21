@@ -770,410 +770,13 @@ def upscaled_with_deeper_aggreg(input_shape, num_classes):
         outputs=b
     )
 
-    return mod  # def test_inception(input_shape, num_classes):
-#     mod = Sequential()
-#
-#     mod.add(Inception(input_shape=input_shape,
-#                       output_depth=num_classes)
-#             )
-#     return mod
-
-
-# def inception_with_deeper_aggreg(input_shape, num_classes):
-#     inputs = Input(input_shape,
-#                    name='net_ins')
-#     a = Inception(input_shape=input_shape,
-#                   output_depth=16,
-#                   dilation_rate=(1, 1),
-#                   name='net_incept_1'
-#                   )(inputs)
-#     current_shape = input_shape[:-1] + (16,)
-#     a = Inception(input_shape=current_shape,
-#                   output_depth=32,
-#                   dilation_rate=(2, 2),
-#                   name='net_incept_2'
-#                   )(a)
-#     current_shape = current_shape[:-1] + (32,)
-#     a = Inception(input_shape=current_shape,
-#                   output_depth=64,
-#                   dilation_rate=(4, 4),
-#                   name='net_incept_3'
-#                   )(a)
-#     current_shape = current_shape[:-1] + (64,)
-#     a = Inception(input_shape=current_shape,
-#                   output_depth=128,
-#                   dilation_rate=(8, 8),
-#                   name='net_incept_4'
-#                   )(a)
-#     current_shape = current_shape[:-1] + (64,)
-#     a = Inception(input_shape=current_shape,
-#                   output_depth=128,
-#                   dilation_rate=(16, 16),
-#                   name='net_incept_5'
-#                   )(a)
-#     current_shape = current_shape[:-1] + (128,)
-#     a = Inception(input_shape=current_shape,
-#                   output_depth=256,
-#                   dilation_rate=(32, 32),
-#                   name='net_incept_6'
-#                   )(a)
-#     current_shape = current_shape[:-1] + (256,)
-#     a = Inception(input_shape=current_shape,
-#                   output_depth=num_classes,
-#                   dilation_rate=(32, 32),
-#                   name='net_incept_7'
-#                   )(a)
-#     b = Conv2D(
-#             filters=num_classes,
-#             kernel_size=3,
-#             use_bias=False,
-#             kernel_initializer=random_uniform(),
-#             activation='relu',
-#             padding='same',
-#             name='aggreg_0'
-#     )(a)
-#     b = Conv2D(
-#             filters=num_classes,
-#             kernel_size=3,
-#             use_bias=False,
-#             kernel_initializer=random_uniform(),
-#             activation='relu',
-#             padding='same',
-#             name='aggreg_1'
-#     )(b)
-#     b = Conv2D(
-#             filters=2 * num_classes,
-#             kernel_size=3,
-#             dilation_rate=2,
-#             use_bias=False,
-#             kernel_initializer=random_uniform(),
-#             activation='relu',
-#             padding='same',
-#             name='aggreg_2'
-#     )(b)
-#     b = Conv2D(
-#             filters=4 * num_classes,
-#             kernel_size=3,
-#             dilation_rate=4,
-#             use_bias=False,
-#             kernel_initializer=random_uniform(),
-#             activation='relu',
-#             padding='same',
-#             name='aggreg_3'
-#     )(b)
-#     b = Conv2D(
-#             filters=8 * num_classes,
-#             kernel_size=3,
-#             dilation_rate=8,
-#             use_bias=False,
-#             kernel_initializer=random_uniform(),
-#             activation='relu',
-#             padding='same',
-#             name='aggreg_4'
-#     )(b)
-#     b = Conv2D(
-#             filters=8 * num_classes,
-#             kernel_size=3,
-#             dilation_rate=16,
-#             use_bias=False,
-#             kernel_initializer=random_uniform(),
-#             activation='relu',
-#             padding='same',
-#             name='aggreg_5'
-#     )(b)
-#     b = Conv2D(
-#             filters=8 * num_classes,
-#             kernel_size=3,
-#             dilation_rate=1,
-#             use_bias=False,
-#             kernel_initializer=random_uniform(),
-#             activation='relu',
-#             padding='same',
-#             name='aggreg_6'
-#     )(b)
-#     b = Conv2D(
-#             filters=num_classes,
-#             kernel_size=1,
-#             dilation_rate=1,
-#             use_bias=False,
-#             kernel_initializer=random_uniform(),
-#             activation='softmax',
-#             padding='same',
-#             name='aggreg_7'
-#     )(b)
-#     mod = Model(
-#             inputs=inputs,
-#             outputs=b
-#     )
-#     return mod
-
-
-# def inception_with_aggreg(input_shape, num_classes):
-#     input_shape = tuple(input_shape)
-#     inputs = Input(input_shape,
-#                    name='net_ins')
-#     a = Inception(input_shape=input_shape,
-#                   output_depth=16,
-#                   dilation_rate=(1, 1),
-#                   name='net_incept_1'
-#                   )(inputs)
-#     current_shape = input_shape[:-1] + (16,)
-#     a = Inception(input_shape=current_shape,
-#                   output_depth=32,
-#                   dilation_rate=(2, 2),
-#                   name='net_incept_2'
-#                   )(a)
-#     current_shape = current_shape[:-1] + (32,)
-#     a = Inception(input_shape=current_shape,
-#                   output_depth=64,
-#                   dilation_rate=(4, 4),
-#                   name='net_incept_3'
-#                   )(a)
-#     current_shape = current_shape[:-1] + (64,)
-#     a = Inception(input_shape=current_shape,
-#                   output_depth=128,
-#                   dilation_rate=(8, 8),
-#                   name='net_incept_4'
-#                   )(a)
-#     current_shape = current_shape[:-1] + (64,)
-#     a = Inception(input_shape=current_shape,
-#                   output_depth=128,
-#                   dilation_rate=(8, 8),
-#                   name='net_incept_5'
-#                   )(a)
-#     current_shape = current_shape[:-1] + (128,)
-#     a = Inception(input_shape=current_shape,
-#                   output_depth=128,
-#                   dilation_rate=(8, 8),
-#                   name='net_incept_6'
-#                   )(a)
-#     current_shape = current_shape[:-1] + (128,)
-#     a = Inception(input_shape=current_shape,
-#                   output_depth=num_classes,
-#                   dilation_rate=(32, 8),
-#                   name='net_incept_7',
-#                   softmax=True,
-#                   )(a)
-#     b = Conv2D(
-#             filters=num_classes,
-#             kernel_size=3,
-#             use_bias=False,
-#             kernel_initializer=random_uniform(),
-#             activation='relu',
-#             padding='same',
-#             name='aggreg_0'
-#     )(a)
-#     b = Conv2D(
-#             filters=num_classes,
-#             kernel_size=3,
-#             use_bias=False,
-#             kernel_initializer=random_uniform(),
-#             activation='relu',
-#             padding='same',
-#             name='aggreg_1'
-#     )(b)
-#     b = Conv2D(
-#             filters=num_classes,
-#             kernel_size=3,
-#             dilation_rate=2,
-#             use_bias=False,
-#             kernel_initializer=random_uniform(),
-#             activation='relu',
-#             padding='same',
-#             name='aggreg_2'
-#     )(b)
-#     b = Conv2D(
-#             filters=num_classes,
-#             kernel_size=3,
-#             dilation_rate=4,
-#             use_bias=False,
-#             kernel_initializer=random_uniform(),
-#             activation='relu',
-#             padding='same',
-#             name='aggreg_3'
-#     )(b)
-#     b = Conv2D(
-#             filters=num_classes,
-#             kernel_size=1,
-#             dilation_rate=1,
-#             use_bias=False,
-#             kernel_initializer=random_uniform(),
-#             activation='softmax',
-#             padding='same',
-#             name='aggreg_7'
-#     )(b)
-#     mod = Model(
-#             inputs=inputs,
-#             outputs=b
-#     )
-#     return mod
-
-
-# def inception_pure(input_shape, num_classes):
-#     inputs = Input(input_shape,
-#                    name='net_ins')
-#     a = Inception(input_shape=input_shape,
-#                   output_depth=16,
-#                   dilation_rate=(1, 1),
-#                   name='net_incept_1'
-#                   )(inputs)
-#     current_shape = tuple(input_shape[:-1]) + (16,)
-#     a = Inception(input_shape=current_shape,
-#                   output_depth=32,
-#                   dilation_rate=(2, 2),
-#                   name='net_incept_2'
-#                   )(a)
-#     current_shape = current_shape[:-1] + (32,)
-#     a = Inception(input_shape=current_shape,
-#                   output_depth=64,
-#                   dilation_rate=(4, 4),
-#                   name='net_incept_3'
-#                   )(a)
-#     current_shape = current_shape[:-1] + (64,)
-#     a = Inception(input_shape=current_shape,
-#                   output_depth=128,
-#                   dilation_rate=(8, 8),
-#                   name='net_incept_4'
-#                   )(a)
-#     current_shape = current_shape[:-1] + (64,)
-#     a = InceptionConcat(input_shape=current_shape,
-#                         output_depth=192,
-#                         mid_depth=96,
-#                         dilation_rate=(16, 16),
-#                         name='net_incept_5'
-#                         )(a)
-#     current_shape = current_shape[:-1] + (192,)
-#     a = InceptionConcat(input_shape=current_shape,
-#                         output_depth=128,
-#                         mid_depth=64,
-#                         dilation_rate=(16, 16),
-#                         name='net_incept_6'
-#                         )(a)
-#     current_shape = current_shape[:-1] + (128,)
-#     a = Inception(input_shape=current_shape,
-#                   output_depth=num_classes,
-#                   dilation_rate=(16, 16),
-#                   softmax=True,
-#                   name='net_incept_7'
-#                   )(a)
-#
-#     mod = Model(
-#             inputs=inputs,
-#             outputs=a
-#     )
-#     return mod
-
-
-# def unpooling_4times(input_shape, num_classes):
-#     """
-#     Just a dummy network to learn how to convolutionnaly upscale an input.
-#     Args:
-#         input_shape ():
-#         num_classes ():
-#
-#     Returns:
-#
-#     """
-#     input_shape = tuple(input_shape)
-#     inputs = Input(input_shape,
-#                    name='input_layer')
-#     a = Conv2DTranspose(filters=num_classes,
-#                         kernel_size=(3, 3),
-#                         strides=(2, 2),
-#                         padding='same',
-#                         use_bias=False,
-#                         name='Upscale_1'
-#                         )(inputs)
-#     a = Conv2DTranspose(filters=num_classes,
-#                         kernel_size=(3, 3),
-#                         strides=(2, 2),
-#                         padding='same',
-#                         use_bias=False,
-#                         name='Upscale_2'
-#                         )(a)
-#     mod = Model(inputs=inputs,
-#                 outputs=a)
-#
-#     return mod
-
-
-# def inception_with_pooling(input_shape, num_classes):
-#     input_shape = tuple(input_shape)
-#     current_shape = input_shape
-#     inputs = Input(shape=input_shape)
-#
-#     a = InceptionPooling(input_shape=current_shape,
-#                          output_depth=32,
-#                          mid_depth=8,
-#                          name='Inception_pool_1'
-#                          )(inputs)
-#     current_shape = current_shape[:-3] + (current_shape[-3] // 2,) + (current_shape[-2] // 2,) + (32,)
-#     a = InceptionPooling(input_shape=current_shape,
-#                          output_depth=128,
-#                          mid_depth=32,
-#                          name='Inception_pool_2'
-#                          )(a)
-#     current_shape = current_shape[:-3] + (current_shape[-3] // 2,) + (current_shape[-2] // 2,) + (128,)
-#     a = InceptionConcat(input_shape=current_shape,
-#                         output_depth=256,
-#                         mid_depth=64,
-#                         name='Inception_upscale_1'
-#                         )(a)
-#     current_shape = current_shape[:-1] + (256,)
-#     a = InceptionConcat(input_shape=current_shape,
-#                         output_depth=256,
-#                         mid_depth=92,
-#                         name='Inception_upscale_2'
-#                         )(a)
-#     a = InceptionConcat(input_shape=current_shape,
-#                         output_depth=256,
-#                         mid_depth=92,
-#                         name='Inception_upscale_3'
-#                         )(a)
-#     a = Inception(input_shape=current_shape,
-#                   output_depth=num_classes,
-#                   name='Inception_Last'
-#                   )(a)
-#     a = UpscalingBicubic(name='Upscale_1')(a)
-#     a = UpscalingBicubic(name='Upscale_2')(a)
-#     # a = UpscalingLayer(name='Unpooling_1')(a)
-#     a = Activation('softmax')(a)
-#     mod = Model(inputs=inputs,
-#                 outputs=a
-#                 )
-#
-#     return mod
-
-
-# def test_inception_with_pooling(input_shape, num_classes):
-#     input_shape = tuple(input_shape)
-#     current_shape = input_shape
-#     inputs = Input(shape=input_shape)
-#
-#     a = InceptionPooling(input_shape=current_shape,
-#                          output_depth=32,
-#                          mid_depth=8,
-#                          name='Inception_pool_1'
-#                          )(inputs)
-#     current_shape = current_shape[:-3] + (current_shape[-3] // 2,) + (current_shape[-2] // 2,) + (32,)
-#     a = InceptionPooling(input_shape=current_shape,
-#                          output_depth=num_classes,
-#                          mid_depth=64,
-#                          name='Inception_pool_2'
-#                          )(a)
-#     a = Activation('softmax')(a)
-#     current_shape = current_shape[:-3] + (current_shape[-3] // 2,) + (current_shape[-2] // 2,) + (128,)
-#
-#     a = UpscalingBicubic(name='Unpooling_0')(a)
-#     a = UpscalingBicubic(name='Unpooling_1')(a)
-#     mod = Model(inputs=inputs,
-#                 outputs=a
-#                 )
-#
-#     return mod
+    return mod  
 
 
 def upscaled_with_skips(input_shape, num_classes):
+    """
+    Network with upscaled convolutions and skip connections, without agregation module. It is one of those described in the report.
+    """
     ins = Input(shape=input_shape,
                 name='net_inputs')
     a = Conv2D(
@@ -1298,6 +901,9 @@ def upscaled_with_skips(input_shape, num_classes):
 
 
 def upscaled_with_skips_aggreg(input_shape, num_classes):
+    """
+    Same network as "up_skips", but with an agregation module at the end.
+    """
     ins = Input(shape=input_shape,
                 name='net_inputs')
     a = Conv2D(
@@ -1494,6 +1100,9 @@ def upscaled_with_skips_aggreg(input_shape, num_classes):
 
 
 def upscaled_with_skips_and_meta(input_shape, num_classes):
+    """
+    Upscaled convolutions with skip connections and meta data (altitude and depth) processed in a different pipeline. No agregation module.
+    """
     # <editor-fold desc="Gestion des inputs">
     ins = Input(shape=input_shape,
                 name='net_inputs')
@@ -1652,6 +1261,9 @@ def upscaled_with_skips_and_meta(input_shape, num_classes):
 
 
 def upscaled_with_skips_and_meta_aggreg(input_shape, num_classes):
+    """
+    Skip connections, separated meta data and agregation module.
+    """
     # <editor-fold desc="Gestion des inputs">
     ins = Input(shape=input_shape,
                 name='net_inputs')
@@ -1884,6 +1496,9 @@ def upscaled_with_skips_and_meta_aggreg(input_shape, num_classes):
 
 
 def upscaled_with_skips_and_meta_pool(input_shape, num_classes):
+    """
+    Skip connections, separated meta data and pooling layer added before the deepest layer of convolution. No agregation module. 
+    """
     # <editor-fold desc="Gestion des inputs">
     ins = Input(shape=input_shape,
                 name='net_inputs')
@@ -2056,6 +1671,9 @@ def upscaled_with_skips_and_meta_pool(input_shape, num_classes):
 
 
 def upscaled_with_skips_and_meta__pool_aggreg(input_shape, num_classes):
+    """
+    Same as the one above, but with agregation module at the end.
+    """
     # <editor-fold desc="Gestion des inputs">
     ins = Input(shape=input_shape,
                 name='net_inputs')
@@ -2302,6 +1920,9 @@ def upscaled_with_skips_and_meta__pool_aggreg(input_shape, num_classes):
 
 
 def upscaled_with_skips_and_meta_pool_dropout(input_shape, num_classes):
+    """
+    Same as the one above, withou agregation but dropout layers have been added to avoid overfitting.
+    """
     # <editor-fold desc="Gestion des inputs">
     ins = Input(shape=input_shape,
                 name='net_inputs')
@@ -2477,6 +2098,9 @@ def upscaled_with_skips_and_meta_pool_dropout(input_shape, num_classes):
 
 
 def upscaled_with_skips_and_meta__pool_dropout_aggreg(input_shape, num_classes):
+    """
+    Same as above, with agregation module and multiple dropout layers.
+    """
     # <editor-fold desc="Gestion des inputs">
     ins = Input(shape=input_shape,
                 name='net_inputs')

@@ -205,7 +205,7 @@ class TrainFrame(tk.LabelFrame):
         doc = builders_dict.get(self.model_choser.get(
             self.model_choser.curselection())).__doc__
         if doc:
-            prin('================================================================')
+            print('================================================================')
             print("About this builder :")
             print(doc)
             print('===============================================================')
@@ -242,14 +242,14 @@ class TrainFrame(tk.LabelFrame):
                                                              save_weights_only=True, 
                                                              save_best_only=True, period=1
                                                              )
-                            )
+                             )
         if self.use_tboard.get():
             callbacks.append(keras.callbacks.TensorBoard(
                                                          log_dir=join(self.model_folder.get(), 'logs'),
                                                          histogram_freq=1, 
                                                          batch_size=int(self.batch_size.get())
                                                          )
-                            )
+                             )
         metrics.append(lambda y_pred, y_true: Metrics.iou(
             y_pred, y_true, self.model3D.num_labels))
         self.model3D.train(self.train_folder.get(),

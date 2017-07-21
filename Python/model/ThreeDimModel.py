@@ -25,7 +25,7 @@ class ThreeDimModel():
         self.builder = ''
         self.name = ''
         self.num_iter = 0
-        self.num_labels = 3
+        self.num_labels = 0
 
     def load(self, dir):
         """
