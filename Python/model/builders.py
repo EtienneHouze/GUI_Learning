@@ -248,7 +248,7 @@ def upscaled_truncated(input_shape, num_classes):
 
 def upscaled_without_aggreg(input_shape, num_classes):
     """
-    Builds a squential model without agregation module.
+    Builds a squential model without agregation module. This is the first model evoked in the report.
     All layer names contains 'net', allowing to freeze them when training the agregation.
     """
     ins = Input(shape=input_shape, name='net_inputs')
@@ -1498,6 +1498,7 @@ def upscaled_with_skips_and_meta_aggreg(input_shape, num_classes):
 def upscaled_with_skips_and_meta_pool(input_shape, num_classes):
     """
     Skip connections, separated meta data and pooling layer added before the deepest layer of convolution. No agregation module. 
+    This model (and its agregated version) are the best performing  models of all.
     """
     # <editor-fold desc="Gestion des inputs">
     ins = Input(shape=input_shape,
@@ -2357,19 +2358,11 @@ builders_dict = {
     'simple_model': simple_model,
     'up': upscaled,
     'up_mini': upscaled_truncated,
-    # A tester : upscale simple, sans skips ni meta.
     'up_without': upscaled_without_aggreg,
     'up_with': upscaled_with_aggreg,
 
     # <editor-fold desc="Obsolete : tests de modeles ratés">
     'up_with_deeper_aggreg': upscaled_with_deeper_aggreg,
-    # 'test_inception': test_inception,
-    # 'inception_with': inception_with_deeper_aggreg,
-    # 'inception_with_lighter': inception_with_aggreg,
-    # 'inception_pure': inception_pure,
-    # 'unpooling': unpooling_4times,
-    # 'test_inception_pooling': test_inception_with_pooling,
-    # 'inception_pooling': inception_with_pooling,
     'upscale_skips_meta': upscaled_with_skips_and_meta,
     # </editor-fold>
     # Utiliser ces deux la : avec skips et sans meta
@@ -2383,11 +2376,4 @@ builders_dict = {
     # Utiliser les deux suivantes
     'up_skips_meta_pool_drop': upscaled_with_skips_and_meta_pool_dropout,
     'up_skips_meta_pool_drop_aggreg': upscaled_with_skips_and_meta__pool_dropout_aggreg
-}
-
-# TODO : Compléter cette doc...
-builders_doc = {
-    'simple_model': "A very simple model made for testing purpose.",
-    'up': "Deprecated",
-    'up_without': "Upscaled convolutions without agregation module."
 }

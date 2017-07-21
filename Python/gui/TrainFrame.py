@@ -9,7 +9,7 @@ import keras
 from helpers import Metrics
 from helpers.others import isValidDataDir
 from model.ThreeDimModel import ThreeDimModel
-from model.builders import builders_dict, builders_doc
+from model.builders import builders_dict
 
 
 class TrainFrame(tk.LabelFrame):
